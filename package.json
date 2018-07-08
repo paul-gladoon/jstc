@@ -1,0 +1,21 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "scripts": {
+    "update:driver": "webdriver-manager update",
+    "start:driver": "webdriver-manager start",
+    "test:local": "protractor ./protractor.conf.js  -l"
+  },
+  "dependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.5.2",
+    "chai": "^4.1.2",
+    "minimist": "^1.2.0",
+    "mocha": "^5.2.0",
+    "protractor": "^5.3.2",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  }
+}
