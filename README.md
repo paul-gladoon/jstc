@@ -1,3 +1,3 @@
 # jstc
 JS Testing Centre
-DEVELOP BRANCH
+Develop Branch
