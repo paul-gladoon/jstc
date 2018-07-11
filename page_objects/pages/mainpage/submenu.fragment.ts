@@ -11,8 +11,6 @@ class SubMenu {
   private booksRating: ElementFinder
   private languagesRating: ElementFinder
 
-  private sm = '.b-index-links'
-
   constructor() {
     this.firstJob = $('[href*="1/?from=d"]')
     this.career = $('[href*="tags"]')
