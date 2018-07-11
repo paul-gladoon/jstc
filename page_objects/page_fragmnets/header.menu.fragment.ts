@@ -14,10 +14,22 @@ class HeaderMenu {
 
   constructor() {
     this.homePage = $('.logo')
+    this.main = $('a.sel')
+    this.forum = $('.b-head [href$="forums/"]')
+    this.strip = $('.b-head [href*="lenta"]')
+    this.salary = $('[href*="salaries"]')
+    this.job = $('[href$="jobs.dou.ua/"]')
+    this.calendar = $('.b-head [href*="calendar"]')
+    this.telegram = $('[rel="nofollow"]')
+    this.search = $('.search')
+    this.loginReg = $('#login-link')
   }
 
-  public goToHomePage() {
-    // TO DO
+  get to() {
+    return {
+      homePage: async () => await this.homePage.click(),
+      main: async () => await this.main.click()
+    }
   }
 }
 
