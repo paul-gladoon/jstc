@@ -28,7 +28,16 @@ class HeaderMenu {
   get to() {
     return {
       homePage: async () => await this.homePage.click(),
-      main: async () => await this.main.click()
+      main: async () => await this.main.click(),
+      forum: async () => await this.forum.click(),
+      strip: async () => await this.strip.click(),
+      salary: async () => await this.salary.click(),
+      job: async () => await this.job.click(),
+      calendar: async () => await this.calendar.click(),
+      telegram: async () => await this.telegram.click(),
+      search: async () => await this.search.click(),
+      loginReg: async () => await this.loginReg.click(),
+
     }
   }
 }
