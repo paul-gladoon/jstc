@@ -62,7 +62,7 @@ const envToBrowser = () => {
 
 const envToSpecs = () => {
   const specsMap = {
-    full: ['./specs/testfile.spec.ts']
+    full: ['./specs/jenkins.test.spec.ts']
   }
   const suits = process.env.RUN_SUITS || 'full'
 
