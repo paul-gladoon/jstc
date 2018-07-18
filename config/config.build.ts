@@ -70,7 +70,7 @@ const envToSpecs = () => {
 }
 
 function protractorConfigBuild() {
-  const baseUrl = process.env.RUN_ENV || 'https://dou.ua/'
+  const baseUrl = process.env.RUN_ENV || 'https://jenkins.io/'
 
   const mochaOpts = {
     timeout: 300 * 1000,

@@ -1,13 +1,7 @@
-import { SubMenu } from "./sub.menu.fragment";
-import { News } from "./news.fragment";
+import { MainMenu } from "../../page_fragments/main.menu.fragment";
 
 class MainPage {
-  private subMenu: SubMenu
-  private news: News
-
-  constructor() {
-    this.subMenu = new SubMenu()
-  }
+  ///
 }
 
 export { MainPage }
