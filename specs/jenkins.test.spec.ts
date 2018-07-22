@@ -1,10 +1,13 @@
-import { expect } from 'chai'
+import { BasePage } from '../page_objects/base.page'
 
 describe('Jenkins test', () => {
-  it('First tets', async () => {
-    const a = 5
-    const b = 5
+  const basePage = new BasePage()
 
-    expect(a + b).equal(10)
+  beforeEach(async () => {
+    await basePage.start()
+  })
+
+  it('First tets', async () => {
+    // TO DO
   })
 })
