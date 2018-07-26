@@ -1,5 +1,4 @@
 import { ElementFinder, $ } from 'protractor'
-import { async } from '../../../node_modules/@types/q';
 
 class DocExtendJenkins {
   private pageCaption: ElementFinder
@@ -8,9 +7,13 @@ class DocExtendJenkins {
     this.pageCaption = $('.col-12 h1')
   }
 
+  public async pageCaptionText() {
+    return this.pageCaption.getText()
+    }
+
   get to() {
     return{
-      pageCaptionText: async () => this.pageCaption.getText()
+
     }
   }
 }
