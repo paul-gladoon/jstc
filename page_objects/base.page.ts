@@ -2,15 +2,15 @@ import { ElementFinder, $, browser, ExpectedConditions as EC } from 'protractor'
 
 class BasePage {
 
- private searchField: ElementFinder
+ private logo: ElementFinder
 
  constructor() {
-   this.searchField = $('#modal-filters')
+   this.logo = $('.navbar-brand')
  }
 
  public async start() {
    await browser.get('/')
-   await browser.wait(EC.visibilityOf(this.searchField), 5000, `Waiting for ${this.searchField}`)
+   await browser.wait(EC.visibilityOf(this.logo), 5000, `Waiting for ${this.logo}`)
  }
 }
 
