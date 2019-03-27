@@ -23,4 +23,5 @@ let arr3 = [5, 6, 7, 8]
 function test2(mas1, mas2) {
   return mas1.concat(mas2)
 }
-const arr4 = test2(arr2,arr3) 
+
+const arr4 = test2(arr2,arr3)
