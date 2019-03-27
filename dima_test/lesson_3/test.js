@@ -30,7 +30,7 @@ const b = 6
 // Для читаемости – оформляйте код в несколько строк.
 
 let message;
-const login = 'fafafafa'
+const login = ''
 
 // if (login == 'Вася') {
 //   message = 'Привет';
