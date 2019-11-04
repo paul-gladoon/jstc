@@ -5,7 +5,7 @@ class BasePage {
  private logo: ElementFinder
 
  constructor() {
-   this.logo = $('.navbar-brand')
+   this.logo = $('.phone')
  }
 
  public async start() {
