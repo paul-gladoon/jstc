@@ -1,10 +1,12 @@
 import {BasePage} from '../page_objects/base.page'
+import {MainPage} from '../page_objects/main.page'
+import {HeaderElements} from '../page_objects/page_fragments/header.fragment'
 import {expect} from 'chai'
 import {browser, $, ExpectedConditions as EC} from 'protractor'
-import {async} from 'q'
 
 describe('Поиск по проекту', function () {
   const basePage = new BasePage()
+  const mainPage = new MainPage()
 
   beforeEach(async function() {
     await basePage.start()
@@ -62,5 +64,7 @@ describe('Поиск по проекту', function () {
 
     expect(tovarMoyash).equals(tovarUrl)
 
+    await mainPage.header.click(HeaderElements.logo)
+    await mainPage.header.clickOn.logo()
   })
 })
