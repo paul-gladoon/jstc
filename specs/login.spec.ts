@@ -1,26 +1,20 @@
 import {BasePage} from '../page_objects/base.page'
 import {$, browser, ExpectedConditions as EC} from 'protractor'
+import {Login} from '../page_objects/page_fragments/login.fragment'
 
 describe('проверка логина', function() {
 
     const basePage = new BasePage()
+    const login = new Login()
 
-    beforeEach(async function() {    
+    beforeEach(async function() {
         await basePage.start()
     })
 
     it('положительная авторизация', async function() {
 
-        await $('#authorizationLink').click()
-        await browser.wait(EC.visibilityOf($('#authorizationForm .modal-content.clearfix')), 5000, 'stop')
-        await $('[name="userEmail"]').sendKeys('egladunodua@gmail.com')
-        await $('[name="userPassword"]').sendKeys('12345lena')
-        await $('.formButton.orange button').click()
+        await login.autharization('egladunodua@gmail.com', '12345lena')
         await browser.sleep(5000)
-        
 
-
-        
     })
-    
 })
