@@ -1,6 +1,6 @@
 import {BasePage} from '../page_objects/base.page'
 import {MainPage} from '../page_objects/main.page'
-import {HeaderElements} from '../page_objects/page_fragments/header.fragment'
+import {Header} from '../page_objects/page_fragments/header.fragment'
 import {expect} from 'chai'
 import {browser, $, ExpectedConditions as EC} from 'protractor'
 
@@ -63,8 +63,6 @@ describe('Поиск по проекту', function () {
     const tovarUrl = await browser.getCurrentUrl()
 
     expect(tovarMoyash).equals(tovarUrl)
-
-    await mainPage.header.click(HeaderElements.logo)
-    await mainPage.header.clickOn.logo()
+    await mainPage.header.goLink.logo()
   })
 })
