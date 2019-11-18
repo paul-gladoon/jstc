@@ -1,22 +1,20 @@
 import {BasePage} from '../page_objects/base.page'
 import {$, browser, ExpectedConditions as EC} from 'protractor'
 import {Login} from '../page_objects/page_fragments/login.fragment'
-import {Header} from '../page_objects/page_fragments/header.fragment'
+import {MainPage} from '../page_objects/main.page'
 
 describe('проверка логина', function() {
 
     const basePage = new BasePage()
     const login = new Login()
-    const header = new Header()
+    const mainPage = new MainPage()
 
     beforeEach(async function() {
         await basePage.start()
     })
 
     it('положительная авторизация', async function() {
-        await header.goLink.signIn()
+        await mainPage.header.to.signIn()
         await login.autharization('egladunodua@gmail.com', '12345lena')
-        await browser.sleep(5000)
-
     })
 })

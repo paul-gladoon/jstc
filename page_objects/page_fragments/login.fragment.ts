@@ -1,4 +1,4 @@
-import {$, ExpectedConditions as EC, browser, ElementFinder,} from 'protractor'
+import {$, ExpectedConditions as EC, browser, ElementFinder} from 'protractor'
 
 class Login {
   private email: ElementFinder
