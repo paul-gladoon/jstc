@@ -1,5 +1,4 @@
-import {ElementFinder, $} from 'protractor'
-import {async} from 'q'
+import {ElementFinder, $, ElementArrayFinder, $$} from 'protractor'
 
 class Header {
   private logo: ElementFinder
@@ -12,6 +11,7 @@ class Header {
   private callBack: ElementFinder
   private searchField: ElementFinder
   private searchBtn: ElementFinder
+  private menu: ElementArrayFinder
 
   constructor() {
     this.logo = $('#logoBlock .logo')
@@ -24,7 +24,7 @@ class Header {
     this.callBack = $('.contactCenterBtn')
     this.searchField = $('[name="searchString"]')
     this.searchBtn = $('#headerSearch_form button')
-
+    this.menu = $$('.mainManu.clearfix > li')
   }
 
   public get to() {
@@ -45,6 +45,13 @@ class Header {
     await this.searchBtn.click()
   }
 
+  public async menuCount() {
+    return this.menu.count()
+  }
+
+  public async menuText() {
+    return this.menu.getText()
+  }
 }
 
 export {Header}

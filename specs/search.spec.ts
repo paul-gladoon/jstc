@@ -63,6 +63,6 @@ describe('Поиск по проекту', function () {
     const tovarUrl = await browser.getCurrentUrl()
 
     expect(tovarMoyash).equals(tovarUrl)
-    await mainPage.header.goLink.logo()
+    await mainPage.header.to.logo()
   })
 })
