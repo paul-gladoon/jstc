@@ -18,6 +18,7 @@ class Login {
     await this.email.sendKeys(email)
     await this.password.sendKeys(password)
     await this.loginBtn.click()
+    await browser.wait(EC.invisibilityOf(this.modalWindow), 5000, 'stop')
   }
 }
 
