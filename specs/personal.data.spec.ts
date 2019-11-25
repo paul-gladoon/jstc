@@ -1,11 +1,10 @@
 import {BasePage} from '../page_objects/base.page'
 import {MainPage} from '../page_objects/main.page'
-import {Header} from '../page_objects/page_fragments/header.fragment'
-import {expect} from 'chai'
-import {browser, $, ExpectedConditions as EC} from 'protractor'
 import {PersonalDataPage} from '../page_objects/personal.data.page'
 import {Login} from '../page_objects/page_fragments/login.fragment'
 import {ProfilePage} from '../page_objects/profile.page'
+import {browser, $$} from 'protractor'
+import {expect} from 'chai'
 
 describe('заполнение персональных данных', function () {
   const basePage = new BasePage()
@@ -25,26 +24,30 @@ describe('заполнение персональных данных', function 
     await profilePage.to.personalData()
 
     const userData = {
-      phoneNum: '0930363341',
-      userName: 'Lena',
-      userSurname: 'Гладун',
-      userStreet: 'Добровольского',
-      userHomeNum: '71',
-      userParad: '3',
-      userDoor: '3',
-      userFlour: '7',
-      userRoom: '100'
+      phone: '0930363341',
+      name: 'Lena',
+      surname: 'Гладун',
+      street: 'Добровольского',
+      home: '71',
+      houseBuilding: '3',
+      frontDoor: '3',
+      flour: '7',
+      roomNumber: '100'
     }
 
-    await personalData.set.phone(userData.phoneNum)
-    await personalData.set.name(userData.userName)
-    await personalData.set.surname(userData.userSurname)
-    await personalData.set.street(userData.userStreet)
-    await personalData.set.home(userData.userHomeNum)
-    await personalData.set.houseBuilding(userData.userParad)
-    await personalData.set.frontDoor(userData.userDoor)
-    await personalData.set.flour(userData.userFlour)
-    await personalData.set.roomNumder(userData.userRoom)
+    await personalData.set.phone(userData.phone)
+    await personalData.set.name(userData.name)
+    await personalData.set.surname(userData.surname)
+    await personalData.set.street(userData.street)
+    await personalData.set.home(userData.home)
+    await personalData.set.houseBuilding(userData.houseBuilding)
+    await personalData.set.frontDoor(userData.frontDoor)
+    await personalData.set.flour(userData.flour)
+    await personalData.set.roomNumder(userData.roomNumber)
     await personalData.clickSaveBtn()
+
+    const profileData = await personalData.getPersonalData()
+
+    expect(userData).deep.equal(profileData)
   })
 })
