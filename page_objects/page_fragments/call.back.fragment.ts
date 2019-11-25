@@ -24,6 +24,14 @@ class CallBackModal {
     await this.text.sendKeys(text)
   }
 
+  public async getData() {
+    return  {
+      name: await this.name.getAttribute('value'),
+      phone: await this.phone.getAttribute('value'),
+      text: await this.text.getAttribute('value')
+    }
+  }
+
   public get to() {
     return {
       orderCall: async () => await this.orderCall.click(),
