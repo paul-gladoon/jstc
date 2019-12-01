@@ -1,4 +1,4 @@
-import {ElementFinder, $, ElementArrayFinder, $$} from 'protractor'
+import {ElementFinder, $, ElementArrayFinder, $$, browser, ExpectedConditions as EC} from 'protractor'
 import {async} from 'q'
 
 class Header {
@@ -43,7 +43,10 @@ class Header {
       registration: async() => await this.registration.click(),
       callBack: async() => await this.callBack.click(),
       myAccount: async() => await this.myAccount.click(),
-      exit: async() => await this.exit.click()
+      exit: async() => {
+        await this.exit.click()
+        await browser.wait(EC.invisibilityOf(this.exit), 5000, 'Exit not invis')
+      }
     }
   }
 

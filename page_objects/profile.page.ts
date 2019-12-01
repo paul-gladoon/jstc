@@ -1,4 +1,4 @@
-import {ElementFinder, $, ElementArrayFinder, $$} from 'protractor'
+import {ElementFinder, $, ElementArrayFinder, $$, browser} from 'protractor'
 
 class ProfilePage {
   private orderList: ElementFinder
@@ -11,7 +11,7 @@ class ProfilePage {
     this.changePassword = $('.td2 [href="/change-password/"]')
   }
   public get to() {
-    return{
+    return {
       orderList: async () => await this.orderList.click(),
       personalData: async () => await this.personalData.click(),
       changePassword: async () => await this.changePassword.click()
