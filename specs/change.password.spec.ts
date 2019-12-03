@@ -3,7 +3,7 @@ import {BasePage} from '../page_objects/base.page'
 import {MainPage} from '../page_objects/main.page'
 import {Login} from '../page_objects/page_fragments/login.fragment'
 import {ProfilePage} from '../page_objects/profile.page'
-import {browser, $$, $} from 'protractor'
+import {$} from 'protractor'
 import {expect} from 'chai'
 import {Helper} from '../helpers/helper'
 
