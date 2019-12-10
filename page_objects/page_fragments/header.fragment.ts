@@ -1,5 +1,4 @@
-import {ElementFinder, $, ElementArrayFinder, $$, browser, ExpectedConditions as EC} from 'protractor'
-import {async} from 'q'
+import {ElementFinder, $, ElementArrayFinder, $$, browser, ExpectedConditions as EC, by, element} from 'protractor'
 
 class Header {
   private logo: ElementFinder
@@ -35,7 +34,10 @@ class Header {
   public get to() {
     return {
       logo: async() => await this.logo.click(),
-      basket: async() => await this.basket.click(),
+      basket: async() => {
+        await this.basket.click()
+        await browser.wait(EC.visibilityOf(element(by.cssContainingText('[itemprop="title"]', 'Корзина'))), 5000, 'Basket title not vis')
+      },
       about: async() => await this.about.click(),
       cashDelivery: async() => await this.cashDelivery.click(),
       instruction: async() => await this.instruction.click(),
@@ -53,6 +55,7 @@ class Header {
   public async search(text) {
     await this.searchField.sendKeys(text)
     await this.searchBtn.click()
+    await browser.wait(EC.visibilityOf(element(by.cssContainingText('[itemprop="title"]', 'Поиск по сайту'))), 5000, 'Search title not vis')
   }
 
   public async menuCount() {

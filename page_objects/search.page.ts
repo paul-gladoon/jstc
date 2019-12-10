@@ -1,7 +1,14 @@
 import {$, $$, ElementArrayFinder, browser, element, by, ElementFinder, WebElement} from 'protractor'
 import {isArray} from 'util'
+import {Header} from './page_fragments/header.fragment'
 
 class SearchPage {
+
+  public header: Header
+
+  constructor() {
+    this.header = new Header()
+  }
 
   public async addToBasket(itemName: string[] | string) {
     itemName = isArray(itemName) ? itemName : itemName.split(null)
@@ -18,11 +25,12 @@ class SearchPage {
       })
     }, itemName)) as ElementFinder[]
 
-    await cards.forEach(async function(card) {
+    for (const card of cards) {
       await card.$('button').click()
       await browser.sleep(2000)
       await $('.close').click()
-    })
+      await browser.sleep(2000)
+    }
   }
 }
 
