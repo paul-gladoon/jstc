@@ -10,6 +10,7 @@ class ProfilePage {
     this.personalData = $('.td2 [href="/user/user-data/"]')
     this.changePassword = $('.td2 [href="/change-password/"]')
   }
+  
   public get to() {
     return {
       orderList: async () => await this.orderList.click(),

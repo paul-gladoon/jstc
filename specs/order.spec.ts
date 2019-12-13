@@ -34,10 +34,13 @@ describe('сделать заказ на сайте', function() {
     await mainPage.header.search('Маки')
     await searchPage.addToBasket('Кани маки ролл')
     await searchPage.header.to.basket()
-    await cartPage.setFull(cartData)
-    const result = await cartPage.getData()
+    await cartPage.changeCount('Кани маки ролл', '5')
 
-    expect(cartData).deep.equal(result)
+    await browser.sleep(5000)
+    // await cartPage.setFull(cartData)
+    // const result = await cartPage.getData()
+
+    // expect(cartData).deep.equal(result)
 
   })
 

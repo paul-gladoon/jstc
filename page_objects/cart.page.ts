@@ -1,4 +1,4 @@
-import {ElementFinder, $, ElementArrayFinder, $$, browser, element, by, ExpectedConditions as EC} from 'protractor'
+import {ElementFinder, $, ElementArrayFinder, $$, browser, element, by, ExpectedConditions as EC, Key} from 'protractor'
 
 enum DeliverySelects {
   typeOfDelivery = 'Тип доставки *',
@@ -98,6 +98,29 @@ class CartPage {
       city: await this.city.getAttribute('value'),
       countPerson: await this.countPerson.getAttribute('value')
     }
+  }
+
+  public async changeCount(itemName: string, count: string) {
+    await browser.wait(EC.visibilityOf($('.offerListBlock table')), 5000, 'table not vis')
+    const fieldToSetCount = element(by.js(`
+      const name = arguments[0]
+      const titleList = document.querySelectorAll('td.title a')
+
+      const foundedTitle = Array.prototype.filter.call(titleList, function(title) {
+        if (title.innerText === name) {
+           return title
+        }
+      })[0]
+
+      const row = foundedTitle.parentNode.parentNode.parentNode
+      const amountTd = row.querySelector('.amountTD')
+      const countField = amountTd.querySelector('[name="offerModAmount"]')
+
+      return countField
+    `, itemName)) as ElementFinder
+
+    await fieldToSetCount.sendKeys(Key.BACK_SPACE)
+    await fieldToSetCount.sendKeys(count)
   }
 
   private async cleanAndSend(elem: ElementFinder, text: string) {
